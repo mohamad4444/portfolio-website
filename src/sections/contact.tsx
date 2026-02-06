@@ -1,6 +1,6 @@
 import { Section } from "../components/section"
 import { Button } from "../components/ui/button"
-import { Mail, MessageSquare, Send, Phone } from "lucide-react"
+import { Mail, MessageSquare, Send, Phone, Github, Linkedin } from "lucide-react"
 import { useState } from "react"
 
 export function Contact() {
@@ -80,6 +80,24 @@ export function Contact() {
                         <div>
                             <p className="font-medium">Phone</p>
                             <p className="text-muted-foreground">+49 17640480072</p>
+                        </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <div className="p-3 bg-secondary rounded-full">
+                            <Github className="w-5 h-5 text-primary" />
+                        </div>
+                        <div>
+                            <p className="font-medium">GitHub</p>
+                            <a href="https://github.com/mohamad4444" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">github.com/mohamad4444</a>
+                        </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                         <div className="p-3 bg-secondary rounded-full">
+                            <Linkedin className="w-5 h-5 text-primary" />
+                        </div>
+                        <div>
+                            <p className="font-medium">LinkedIn</p>
+                            <a href="https://linkedin.com/in/mohamad4444" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">linkedin.com/in/mohamad4444</a>
                         </div>
                     </div>
                 </div>

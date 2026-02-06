@@ -8,21 +8,28 @@ const projects = [
     title: "Cloud Native Purchase System",
     description: "Architected a scalable, cloud-native purchase system with full observability on Kubernetes. Implemented ephemeral environments and AOP for logging.",
     tags: ["Kubernetes", "Helm", "Spring Boot", "Grafana Alloy"],
-    links: { demo: "#", code: "#" },
+    links: { demo: "#", code: "https://github.com/mohamad4444/Purchase-System-Cloud-Native" },
     strengths: ["Cloud-Native", "Observability", "Automation"],
+  },
+  {
+    title: "Ansible Infrastructure",
+    description: "Automated infrastructure provisioning and configuration management using Ansible playbooks. Streamlines deployment processes and ensures environment consistency.",
+    tags: ["Ansible", "Python", "DevOps", "IaC"],
+    links: { demo: "#", code: "https://github.com/mohamad4444/ansible" },
+    strengths: ["Automation", "Infrastructure", "Config Mgmt"],
   },
   {
     title: "Events Management System",
     description: "Designed event-management workflows and developed role/permission systems properly integrated with university processes.",
     tags: ["Java", "Spring MVC", "Tomcat", "Maven"],
-    links: { demo: "#", code: "#" },
+    links: { demo: "", code: "" },
     strengths: ["Workflow Design", "RBAC", "Backend"],
   },
   {
     title: "LostNFound App",
     description: "Android application for posting and finding lost items, featuring SQLite integration for local data persistence.",
     tags: ["Java", "Android Studio", "SQLite"],
-    links: { demo: "#", code: "#" },
+    links: { demo: "", code: "" },
     strengths: ["Mobile Dev", "Persistence", "UX"],
   }
 ]
@@ -83,16 +90,20 @@ export function Projects() {
               </div>
 
               <div className="flex gap-4">
-                <Button variant="outline" size="sm" className="w-full gap-2" asChild>
-                  <a href={project.links.code} aria-label={`View code for ${project.title}`}>
-                    <Github className="w-4 h-4" /> Code
-                  </a>
-                </Button>
-                <Button size="sm" className="w-full gap-2" asChild>
-                  <a href={project.links.demo} aria-label={`View demo for ${project.title}`}>
-                    <ExternalLink className="w-4 h-4" /> Live Demo
-                  </a>
-                </Button>
+                {project.links.code && project.links.code !== "#" && (
+                  <Button variant="outline" size="sm" className="w-full gap-2" asChild>
+                    <a href={project.links.code} aria-label={`View code for ${project.title}`}>
+                      <Github className="w-4 h-4" /> Code
+                    </a>
+                  </Button>
+                )}
+                {project.links.demo && project.links.demo !== "#" && (
+                  <Button size="sm" className="w-full gap-2" asChild>
+                    <a href={project.links.demo} aria-label={`View demo for ${project.title}`}>
+                      <ExternalLink className="w-4 h-4" /> Live Demo
+                    </a>
+                  </Button>
+                )}
               </div>
             </div>
           </motion.div>
