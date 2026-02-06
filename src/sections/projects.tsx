@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import { Section } from "../components/section"
 import { Button } from "../components/ui/button"
-import { ExternalLink, Github, Star } from "lucide-react"
+import { ExternalLink, Github } from "lucide-react"
 
 const projects = [
   {
@@ -51,56 +51,42 @@ export function Projects() {
             key={index}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group rounded-xl overflow-hidden border bg-card hover:shadow-xl transition-all duration-300 flex flex-col"
+            whileHover={{ y: -5 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
+            className="group rounded-2xl overflow-hidden border bg-card hover:shadow-2xl transition-shadow duration-300 flex flex-col"
           >
-            <div className="aspect-video bg-muted relative overflow-hidden shrink-0">
-               {/* Placeholder for Project Image */}
-              <div className="absolute inset-0 flex items-center justify-center bg-linear-to-tr from-primary/10 to-primary/5 group-hover:scale-105 transition-transform duration-500">
-                <span className="text-muted-foreground font-medium">Project Preview</span>
-              </div>
-            </div>
+
             
             <div className="p-6 flex flex-col grow">
-              <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+              <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
                 {project.title}
               </h3>
-              
-              {/* Strengths Highlights */}
-              <div className="flex gap-2 mb-4">
-                 {project.strengths.map((strength) => (
-                    <div key={strength} className="flex items-center gap-1 text-xs font-semibold text-amber-500 bg-amber-500/10 px-2 py-0.5 rounded-full">
-                        <Star className="w-3 h-3 fill-current" />
-                        {strength}
-                    </div>
-                 ))}
-              </div>
 
-              <p className="text-muted-foreground mb-6 line-clamp-3 text-sm grow">
+              <p className="text-muted-foreground mb-6 line-clamp-3 text-sm grow leading-relaxed">
                 {project.description}
               </p>
               
-              <div className="flex flex-wrap gap-2 mb-6 mt-auto">
+              <div className="flex flex-wrap gap-2 mb-8 mt-auto">
                 {project.tags.map((tag) => (
-                  <span key={tag} className="px-2 py-1 bg-secondary text-secondary-foreground text-xs rounded-md font-medium">
+                  <span key={tag} className="px-2.5 py-1 bg-secondary/50 text-secondary-foreground text-xs rounded-md font-medium border border-transparent hover:border-border transition-colors">
                     {tag}
                   </span>
                 ))}
               </div>
 
-              <div className="flex gap-4">
-                {project.links.code && project.links.code !== "#" && (
-                  <Button variant="outline" size="sm" className="w-full gap-2" asChild>
-                    <a href={project.links.code} aria-label={`View code for ${project.title}`}>
-                      <Github className="w-4 h-4" /> Code
+              <div className="flex gap-3 pt-2 mt-auto border-t">
+                {project.links.code && project.links.code !== "" && (
+                  <Button variant="ghost" size="sm" className="w-full gap-2 hover:bg-primary/10 hover:text-primary transition-colors" asChild>
+                    <a href={project.links.code} aria-label={`View code for ${project.title}`} target="_blank" rel="noopener noreferrer">
+                      <Github className="w-4 h-4" /> <span className="font-semibold">Code</span>
                     </a>
                   </Button>
                 )}
-                {project.links.demo && project.links.demo !== "#" && (
-                  <Button size="sm" className="w-full gap-2" asChild>
-                    <a href={project.links.demo} aria-label={`View demo for ${project.title}`}>
-                      <ExternalLink className="w-4 h-4" /> Live Demo
+                {project.links.demo && project.links.demo !== "" && (
+                   <Button size="sm" className="w-full gap-2 group/btn shadow-md hover:shadow-lg transition-all" asChild>
+                    <a href={project.links.demo} aria-label={`View demo for ${project.title}`} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-4 h-4 group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5 transition-transform" /> <span className="font-semibold">Live Demo</span>
                     </a>
                   </Button>
                 )}
