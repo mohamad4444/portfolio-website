@@ -5,25 +5,25 @@ import { ExternalLink, Github, Star } from "lucide-react"
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-featured online store built with Next.js, Stripe, and Prisma. Features include auth, cart, and dashboard.",
-    tags: ["Next.js", "TypeScript", "Prisma", "Stripe"],
+    title: "Cloud Native Purchase System",
+    description: "Architected a scalable, cloud-native purchase system with full observability on Kubernetes. Implemented ephemeral environments and AOP for logging.",
+    tags: ["Kubernetes", "Helm", "Spring Boot", "Grafana Alloy"],
     links: { demo: "#", code: "#" },
-    strengths: ["Performance", "Scalability", "Security"],
+    strengths: ["Cloud-Native", "Observability", "Automation"],
   },
   {
-    title: "Task Management App",
-    description: "Real-time collaboration tool for teams. Drag and drop kanban board with live updates using Socket.io.",
-    tags: ["React", "Node.js", "Socket.io", "Tailwind"],
+    title: "Events Management System",
+    description: "Designed event-management workflows and developed role/permission systems properly integrated with university processes.",
+    tags: ["Java", "Spring MVC", "Tomcat", "Maven"],
     links: { demo: "#", code: "#" },
-    strengths: ["Real-time", "UX-Focused", "Responsive"],
+    strengths: ["Workflow Design", "RBAC", "Backend"],
   },
   {
-    title: "AI Dashboard",
-    description: "Analytics dashboard powered by AI. Visualizes data trends and predicts future metrics using machine learning models.",
-    tags: ["Python", "FastAPI", "React", "D3.js"],
+    title: "LostNFound App",
+    description: "Android application for posting and finding lost items, featuring SQLite integration for local data persistence.",
+    tags: ["Java", "Android Studio", "SQLite"],
     links: { demo: "#", code: "#" },
-    strengths: ["Data Viz", "Machine Learning", "Optimization"],
+    strengths: ["Mobile Dev", "Persistence", "UX"],
   }
 ]
 

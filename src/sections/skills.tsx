@@ -1,36 +1,43 @@
 import { motion } from "framer-motion"
 import { Section } from "../components/section"
-import { SiReact, SiTypescript, SiTailwindcss, SiNextdotjs, SiFramer, SiNodedotjs, SiExpress, SiPostgresql, SiMongodb, SiGraphql, SiGit, SiDocker, SiAmazon, SiLinux, SiFigma } from "react-icons/si"
+import { 
+  SiSpring, SiPython, SiKotlin, SiCplusplus, SiSharp, SiHaskell, 
+  SiSpringboot, SiKubernetes, SiHelm, SiDocker, SiJenkins, SiAnsible, 
+  SiPostgresql, SiMongodb, SiHtml5, SiCss3, SiJavascript, SiTypescript 
+} from "react-icons/si"
 
 const skills = [
   {
-    category: "Frontend",
+    category: "Languages",
     items: [
-      { name: "React", icon: <SiReact className="w-8 h-8 text-[#61DAFB]" /> },
-      { name: "TypeScript", icon: <SiTypescript className="w-8 h-8 text-[#3178C6]" /> },
-      { name: "Tailwind CSS", icon: <SiTailwindcss className="w-8 h-8 text-[#06B6D4]" /> },
-      { name: "Next.js", icon: <SiNextdotjs className="w-8 h-8 dark:text-white text-black" /> },
-      { name: "Framer Motion", icon: <SiFramer className="w-8 h-8 text-black dark:text-white" /> },
+      { name: "Java", icon: <SiSpring className="w-8 h-8 text-[#6DB33F]" /> }, // Using Spring icon as placeholder/related or finding generic
+      { name: "Python", icon: <SiPython className="w-8 h-8 text-[#3776AB]" /> },
+      { name: "Kotlin", icon: <SiKotlin className="w-8 h-8 text-[#7F52FF]" /> },
+      { name: "C++", icon: <SiCplusplus className="w-8 h-8 text-[#00599C]" /> },
+      { name: "C#", icon: <SiSharp className="w-8 h-8 text-[#239120]" /> },
+      { name: "Haskell", icon: <SiHaskell className="w-8 h-8 text-[#5D4F85]" /> },
     ],
   },
   {
-    category: "Backend",
+    category: "Backend & DevOps",
     items: [
-      { name: "Node.js", icon: <SiNodedotjs className="w-8 h-8 text-[#339933]" /> },
-      { name: "Express", icon: <SiExpress className="w-8 h-8 dark:text-white text-black" /> },
+      { name: "Spring Boot", icon: <SiSpringboot className="w-8 h-8 text-[#6DB33F]" /> },
+      { name: "Kubernetes", icon: <SiKubernetes className="w-8 h-8 text-[#326CE5]" /> },
+      { name: "Helm", icon: <SiHelm className="w-8 h-8 text-[#0F1689]" /> },
+      { name: "Docker", icon: <SiDocker className="w-8 h-8 text-[#2496ED]" /> },
+      { name: "Jenkins", icon: <SiJenkins className="w-8 h-8 text-[#D24939]" /> },
+      { name: "Ansible", icon: <SiAnsible className="w-8 h-8 text-[#EE0000]" /> },
       { name: "PostgreSQL", icon: <SiPostgresql className="w-8 h-8 text-[#4169E1]" /> },
       { name: "MongoDB", icon: <SiMongodb className="w-8 h-8 text-[#47A248]" /> },
-      { name: "GraphQL", icon: <SiGraphql className="w-8 h-8 text-[#E10098]" /> },
     ],
   },
   {
-    category: "DevOps & Tools",
+    category: "Frontend",
     items: [
-      { name: "Git", icon: <SiGit className="w-8 h-8 text-[#F05032]" /> },
-      { name: "Docker", icon: <SiDocker className="w-8 h-8 text-[#2496ED]" /> },
-      { name: "AWS", icon: <SiAmazon className="w-8 h-8 text-[#FF9900]" /> },
-      { name: "Linux", icon: <SiLinux className="w-8 h-8 text-black dark:text-white" /> },
-      { name: "Figma", icon: <SiFigma className="w-8 h-8 text-[#F24E1E]" /> },
+      { name: "HTML", icon: <SiHtml5 className="w-8 h-8 text-[#E34F26]" /> },
+      { name: "CSS", icon: <SiCss3 className="w-8 h-8 text-[#1572B6]" /> },
+      { name: "JavaScript", icon: <SiJavascript className="w-8 h-8 text-[#F7DF1E]" /> },
+      { name: "TypeScript", icon: <SiTypescript className="w-8 h-8 text-[#3178C6]" /> },
     ],
   },
 ]

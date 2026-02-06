@@ -11,8 +11,9 @@ export function Contact() {
     e.preventDefault()
     setFormState('submitting')
     setResultMessage("")
+    const form = e.currentTarget
 
-    const formData = new FormData(e.currentTarget)
+    const formData = new FormData(form)
     formData.append("access_key", "4a6f4ab2-6798-4da5-baa1-89aa6e45fa7b")
 
     try {
@@ -26,7 +27,7 @@ export function Contact() {
       if (data.success) {
         setFormState('success')
         setResultMessage("Message sent successfully!")
-        e.currentTarget.reset()
+        form.reset()
       } else {
         setFormState('error')
         setResultMessage(data.message || "Something went wrong. Please try again.")
@@ -69,7 +70,7 @@ export function Contact() {
                         </div>
                         <div>
                             <p className="font-medium">Email</p>
-                            <a href="mailto:hello@example.com" className="text-muted-foreground hover:text-primary transition-colors">hello@example.com</a>
+                            <a href="mailto:mzkariyah@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">mzkariyah@gmail.com</a>
                         </div>
                     </div>
                     <div className="flex items-center gap-4">
@@ -78,7 +79,7 @@ export function Contact() {
                         </div>
                         <div>
                             <p className="font-medium">Phone</p>
-                            <p className="text-muted-foreground">+1 (555) 000-0000</p>
+                            <p className="text-muted-foreground">+49 17640480072</p>
                         </div>
                     </div>
                 </div>
@@ -86,8 +87,8 @@ export function Contact() {
 
             <div className="mt-8 md:mt-0">
                 <p className="text-sm text-muted-foreground">
-                    Based in San Francisco, CA<br/>
-                    Available for remote work worldwide
+                    Based in 66482 Zweibrücken, Germany<br/>
+                    Available for freelance & full-time opportunities
                 </p>
             </div>
         </div>

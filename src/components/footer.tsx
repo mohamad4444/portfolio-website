@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Terminal, Mail, ArrowUpRight } from "lucide-react"
+import { Github, Linkedin, Terminal, Mail, ArrowUpRight } from "lucide-react"
 
 export function Footer() {
   return (
@@ -46,13 +46,9 @@ export function Footer() {
                         <Linkedin className="w-4 h-4" /> LinkedIn <ArrowUpRight className="w-3 h-3 ml-auto opacity-50" />
                     </a>
                 </li>
+
                 <li>
-                    <a href="#" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                        <Twitter className="w-4 h-4" /> Twitter <ArrowUpRight className="w-3 h-3 ml-auto opacity-50" />
-                    </a>
-                </li>
-                <li>
-                    <a href="mailto:hello@example.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                    <a href="mailto:mzkariyah@gmail.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                         <Mail className="w-4 h-4" /> Email <ArrowUpRight className="w-3 h-3 ml-auto opacity-50" />
                     </a>
                 </li>
@@ -61,7 +57,7 @@ export function Footer() {
         </div>
 
         <div className="border-t pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© {new Date().getFullYear()} DevPortfolio. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Mohammad Mahamid. All rights reserved.</p>
             <p>Designed & Built with ❤️ using React</p>
         </div>
       </div>
