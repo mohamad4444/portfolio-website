@@ -19,16 +19,21 @@ const skills = [
     ],
   },
   {
-    category: "Backend & DevOps",
+    category: "Backend & DB",
     items: [
       { name: "Spring Boot", icon: <SiSpringboot className="w-8 h-8 text-[#6DB33F]" /> },
+      { name: "PostgreSQL", icon: <SiPostgresql className="w-8 h-8 text-[#4169E1]" /> },
+      { name: "MongoDB", icon: <SiMongodb className="w-8 h-8 text-[#47A248]" /> },
+    ],
+  },
+  {
+    category: "DevOps & Cloud",
+    items: [
       { name: "Kubernetes", icon: <SiKubernetes className="w-8 h-8 text-[#326CE5]" /> },
       { name: "Helm", icon: <SiHelm className="w-8 h-8 text-[#0F1689]" /> },
       { name: "Docker", icon: <SiDocker className="w-8 h-8 text-[#2496ED]" /> },
       { name: "Jenkins", icon: <SiJenkins className="w-8 h-8 text-[#D24939]" /> },
       { name: "Ansible", icon: <SiAnsible className="w-8 h-8 text-[#EE0000]" /> },
-      { name: "PostgreSQL", icon: <SiPostgresql className="w-8 h-8 text-[#4169E1]" /> },
-      { name: "MongoDB", icon: <SiMongodb className="w-8 h-8 text-[#47A248]" /> },
     ],
   },
   {
@@ -52,7 +57,7 @@ export function Skills() {
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto space-y-8">
+      <div className="max-w-5xl mx-auto space-y-4">
         {skills.map((group, groupIndex) => (
           <motion.div
             key={group.category}
@@ -60,21 +65,21 @@ export function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: groupIndex * 0.1 }}
-            className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8 items-center"
+            className="grid md:grid-cols-[150px_1fr] gap-2 items-center"
           >
-            <h3 className="text-lg md:text-xl font-bold text-primary/80 uppercase tracking-widest md:text-right">{group.category}</h3>
+            <h3 className="text-sm md:text-base font-bold text-primary/80 uppercase tracking-widest md:text-right">{group.category}</h3>
             
-            <div className="flex flex-wrap gap-4 p-6 rounded-2xl border bg-card/30 backdrop-blur-sm shadow-sm hover:border-primary/20 transition-colors duration-300">
+            <div className="flex flex-wrap gap-x-4 gap-y-2 p-3 rounded-xl border bg-card/30 backdrop-blur-sm shadow-sm hover:border-primary/20 transition-colors duration-300">
                 {group.items.map((skill, i) => (
                     <motion.div
                         key={i}
                         whileHover={{ scale: 1.1 }}
-                        className="flex flex-col items-center gap-2 group cursor-default"
+                        className="flex flex-col items-center gap-1 group cursor-default"
                     >
-                        <div className="p-2 rounded-lg bg-transparent transition-all duration-300 filter grayscale group-hover:grayscale-0">
+                        <div className="p-1.5 rounded-lg bg-transparent transition-all duration-300">
                             {skill.icon}
                         </div>
-                        <span className="text-[10px] md:text-xs font-medium text-muted-foreground/80 group-hover:text-primary transition-colors">{skill.name}</span>
+                        <span className="text-[10px] font-medium text-muted-foreground/80 group-hover:text-primary transition-colors">{skill.name}</span>
                     </motion.div>
                 ))}
             </div>
