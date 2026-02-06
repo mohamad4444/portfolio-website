@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import { Section } from "../components/section"
 import { 
-  SiSpring, SiPython, SiKotlin, SiCplusplus, SiSharp, SiHaskell, 
+  SiSpring, SiPython, SiCplusplus, SiHaskell, 
   SiSpringboot, SiKubernetes, SiHelm, SiDocker, SiJenkins, SiAnsible, 
   SiPostgresql, SiMongodb, SiHtml5, SiCss3, SiJavascript, SiTypescript,
   SiAmazon, SiGrafana, SiPrometheus, SiDebian, SiFedora, SiJira
@@ -13,9 +13,7 @@ const skills = [
     items: [
       { name: "Java", icon: <SiSpring className="w-8 h-8 text-[#6DB33F]" /> },
       { name: "Python", icon: <SiPython className="w-8 h-8 text-[#3776AB]" /> },
-      { name: "Kotlin", icon: <SiKotlin className="w-8 h-8 text-[#7F52FF]" /> },
       { name: "C++", icon: <SiCplusplus className="w-8 h-8 text-[#00599C]" /> },
-      { name: "C#", icon: <SiSharp className="w-8 h-8 text-[#239120]" /> },
       { name: "Haskell", icon: <SiHaskell className="w-8 h-8 text-[#5D4F85]" /> },
     ],
   },
@@ -39,11 +37,21 @@ const skills = [
     ],
   },
   {
+    category: "Frontend",
+    items: [
+      { name: "HTML", icon: <SiHtml5 className="w-8 h-8 text-[#E34F26]" /> },
+      { name: "CSS", icon: <SiCss3 className="w-8 h-8 text-[#1572B6]" /> },
+      { name: "JavaScript", icon: <SiJavascript className="w-8 h-8 text-[#F7DF1E]" /> },
+      { name: "TypeScript", icon: <SiTypescript className="w-8 h-8 text-[#3178C6]" /> },
+    ],
+  },
+  {
     category: "Observability",
     items: [
       { name: "Grafana Alloy", icon: <SiGrafana className="w-8 h-8 text-[#F46800]" /> },
       { name: "Prometheus", icon: <SiPrometheus className="w-8 h-8 text-[#E6522C]" /> },
       { name: "Promtail", icon: <SiGrafana className="w-8 h-8 text-[#F46800]" /> },
+      { name: "Loki", icon: <SiGrafana className="w-8 h-8 text-[#F46800]" /> },
     ],
   },
   {
@@ -59,15 +67,6 @@ const skills = [
       { name: "Scrum", icon: <SiJira className="w-8 h-8 text-[#009FD6]" /> },
     ],
   },
-  {
-    category: "Frontend",
-    items: [
-      { name: "HTML", icon: <SiHtml5 className="w-8 h-8 text-[#E34F26]" /> },
-      { name: "CSS", icon: <SiCss3 className="w-8 h-8 text-[#1572B6]" /> },
-      { name: "JavaScript", icon: <SiJavascript className="w-8 h-8 text-[#F7DF1E]" /> },
-      { name: "TypeScript", icon: <SiTypescript className="w-8 h-8 text-[#3178C6]" /> },
-    ],
-  },
 ]
 
 export function Skills() {
@@ -80,32 +79,36 @@ export function Skills() {
         </p>
       </div>
 
-      <div className="max-w-5xl mx-auto space-y-4">
+      <div className="max-w-4xl mx-auto bg-card/30 backdrop-blur-sm border rounded-3xl p-8 shadow-sm">
         {skills.map((group, groupIndex) => (
           <motion.div
             key={group.category}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: groupIndex * 0.1 }}
-            className="grid md:grid-cols-[150px_1fr] gap-2 items-center"
+            transition={{ duration: 0.3, delay: groupIndex * 0.05 }}
           >
-            <h3 className="text-sm md:text-base font-bold text-primary/80 uppercase tracking-widest md:text-right">{group.category}</h3>
-            
-            <div className="flex flex-wrap gap-x-4 gap-y-2 p-3 rounded-xl border bg-card/30 backdrop-blur-sm shadow-sm hover:border-primary/20 transition-colors duration-300">
-                {group.items.map((skill, i) => (
-                    <motion.div
-                        key={i}
-                        whileHover={{ scale: 1.1 }}
-                        className="flex flex-col items-center gap-1 group cursor-default"
-                    >
-                        <div className="p-1.5 rounded-lg bg-transparent transition-all duration-300">
-                            {skill.icon}
-                        </div>
-                        <span className="text-[10px] font-medium text-muted-foreground/80 group-hover:text-primary transition-colors">{skill.name}</span>
-                    </motion.div>
-                ))}
+            <div className="grid md:grid-cols-[180px_1fr] gap-6 items-center py-6">
+                <h3 className="text-sm font-bold text-primary/80 uppercase tracking-widest md:text-right">{group.category}</h3>
+                
+                <div className="flex flex-wrap gap-x-6 gap-y-4">
+                    {group.items.map((skill, i) => (
+                        <motion.div
+                            key={i}
+                            whileHover={{ scale: 1.1 }}
+                            className="flex items-center gap-2 group cursor-default"
+                        >
+                            <div className="w-6 h-6 flex items-center justify-center transition-transform duration-300">
+                                {skill.icon}
+                            </div>
+                            <span className="text-sm font-medium text-muted-foreground/80 group-hover:text-primary transition-colors">{skill.name}</span>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
+            {groupIndex < skills.length - 1 && (
+                <div className="h-px bg-border/50 w-full" />
+            )}
           </motion.div>
         ))}
       </div>
