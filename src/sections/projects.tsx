@@ -50,12 +50,12 @@ export function Projects() {
           >
             <div className="aspect-video bg-muted relative overflow-hidden shrink-0">
                {/* Placeholder for Project Image */}
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-tr from-primary/10 to-primary/5 group-hover:scale-105 transition-transform duration-500">
+              <div className="absolute inset-0 flex items-center justify-center bg-linear-to-tr from-primary/10 to-primary/5 group-hover:scale-105 transition-transform duration-500">
                 <span className="text-muted-foreground font-medium">Project Preview</span>
               </div>
             </div>
             
-            <div className="p-6 flex flex-col flex-grow">
+            <div className="p-6 flex flex-col grow">
               <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
                 {project.title}
               </h3>
@@ -70,7 +70,7 @@ export function Projects() {
                  ))}
               </div>
 
-              <p className="text-muted-foreground mb-6 line-clamp-3 text-sm flex-grow">
+              <p className="text-muted-foreground mb-6 line-clamp-3 text-sm grow">
                 {project.description}
               </p>
               

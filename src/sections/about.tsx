@@ -14,7 +14,7 @@ export function About() {
         >
           <div className="relative z-10 rounded-lg overflow-hidden shadow-2xl">
              {/* Placeholder for Profile Image - using a gradient/solid color for now, user can replace */}
-            <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary flex items-center justify-center text-4xl font-bold text-muted-foreground">
+            <div className="aspect-square bg-linear-to-br from-primary/20 to-secondary flex items-center justify-center text-4xl font-bold text-muted-foreground">
                Profile Image
             </div>
           </div>
