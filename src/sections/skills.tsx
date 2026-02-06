@@ -52,7 +52,7 @@ export function Skills() {
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto space-y-12">
+      <div className="max-w-6xl mx-auto space-y-8">
         {skills.map((group, groupIndex) => (
           <motion.div
             key={group.category}
@@ -60,21 +60,21 @@ export function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: groupIndex * 0.1 }}
-            className="grid md:grid-cols-[200px_1fr] gap-8 items-start"
+            className="grid md:grid-cols-[200px_1fr] gap-4 md:gap-8 items-center"
           >
-            <h3 className="text-xl font-bold text-primary/80 uppercase tracking-wider md:text-right md:sticky md:top-24">{group.category}</h3>
+            <h3 className="text-lg md:text-xl font-bold text-primary/80 uppercase tracking-widest md:text-right">{group.category}</h3>
             
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 p-6 rounded-2xl border bg-card/30 backdrop-blur-sm shadow-sm hover:border-primary/20 transition-colors duration-300">
                 {group.items.map((skill, i) => (
                     <motion.div
                         key={i}
-                        whileHover={{ y: -5 }}
-                        className="flex flex-col items-center gap-2 p-3 w-24 rounded-xl border bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300 group shadow-sm hover:shadow-md"
+                        whileHover={{ scale: 1.1 }}
+                        className="flex flex-col items-center gap-2 group cursor-default"
                     >
-                        <div className="p-2 rounded-lg bg-secondary/50 group-hover:scale-110 transition-transform duration-300">
+                        <div className="p-2 rounded-lg bg-transparent transition-all duration-300 filter grayscale group-hover:grayscale-0">
                             {skill.icon}
                         </div>
-                        <span className="font-medium text-xs text-center text-muted-foreground group-hover:text-foreground transition-colors">{skill.name}</span>
+                        <span className="text-[10px] md:text-xs font-medium text-muted-foreground/80 group-hover:text-primary transition-colors">{skill.name}</span>
                     </motion.div>
                 ))}
             </div>
