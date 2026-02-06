@@ -3,7 +3,8 @@ import { Section } from "../components/section"
 import { 
   SiSpring, SiPython, SiKotlin, SiCplusplus, SiSharp, SiHaskell, 
   SiSpringboot, SiKubernetes, SiHelm, SiDocker, SiJenkins, SiAnsible, 
-  SiPostgresql, SiMongodb, SiHtml5, SiCss3, SiJavascript, SiTypescript 
+  SiPostgresql, SiMongodb, SiHtml5, SiCss3, SiJavascript, SiTypescript,
+  SiAmazon, SiGrafana, SiPrometheus, SiDebian, SiFedora, SiJira
 } from "react-icons/si"
 
 const skills = [
@@ -29,11 +30,33 @@ const skills = [
   {
     category: "DevOps & Cloud",
     items: [
+      { name: "AWS", icon: <SiAmazon className="w-8 h-8 text-[#232F3E]" /> },
       { name: "Kubernetes", icon: <SiKubernetes className="w-8 h-8 text-[#326CE5]" /> },
       { name: "Helm", icon: <SiHelm className="w-8 h-8 text-[#0F1689]" /> },
       { name: "Docker", icon: <SiDocker className="w-8 h-8 text-[#2496ED]" /> },
       { name: "Jenkins", icon: <SiJenkins className="w-8 h-8 text-[#D24939]" /> },
       { name: "Ansible", icon: <SiAnsible className="w-8 h-8 text-[#EE0000]" /> },
+    ],
+  },
+  {
+    category: "Observability",
+    items: [
+      { name: "Grafana Alloy", icon: <SiGrafana className="w-8 h-8 text-[#F46800]" /> },
+      { name: "Prometheus", icon: <SiPrometheus className="w-8 h-8 text-[#E6522C]" /> },
+      { name: "Promtail", icon: <SiGrafana className="w-8 h-8 text-[#F46800]" /> },
+    ],
+  },
+  {
+    category: "Operating Systems",
+    items: [
+      { name: "Debian", icon: <SiDebian className="w-8 h-8 text-[#A81D33]" /> },
+      { name: "Fedora", icon: <SiFedora className="w-8 h-8 text-[#51A2DA]" /> },
+    ],
+  },
+  {
+    category: "Methodologies",
+    items: [
+      { name: "Scrum", icon: <SiJira className="w-8 h-8 text-[#009FD6]" /> },
     ],
   },
   {
