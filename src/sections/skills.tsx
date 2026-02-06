@@ -1,5 +1,7 @@
-import { motion } from "framer-motion"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import { Section } from "../components/section"
+import { cn } from "../lib/utils"
 import { 
   SiSpring, SiPython, SiKotlin, SiCplusplus, SiSharp, SiHaskell, 
   SiSpringboot, SiKubernetes, SiHelm, SiDocker, SiJenkins, SiAnsible, 
@@ -10,7 +12,7 @@ const skills = [
   {
     category: "Languages",
     items: [
-      { name: "Java", icon: <SiSpring className="w-8 h-8 text-[#6DB33F]" /> }, // Using Spring icon as placeholder/related or finding generic
+      { name: "Java", icon: <SiSpring className="w-8 h-8 text-[#6DB33F]" /> },
       { name: "Python", icon: <SiPython className="w-8 h-8 text-[#3776AB]" /> },
       { name: "Kotlin", icon: <SiKotlin className="w-8 h-8 text-[#7F52FF]" /> },
       { name: "C++", icon: <SiCplusplus className="w-8 h-8 text-[#00599C]" /> },
@@ -43,41 +45,68 @@ const skills = [
 ]
 
 export function Skills() {
+  const [activeTab, setActiveTab] = useState(skills[0].category)
+
   return (
-    <Section id="skills">
+    <Section id="skills" className="py-20">
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">Tech Stack & Skills</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          I specialize in building full-stack applications with a focus on simple,
-          clean, and scalable code.
+          Tools and technologies I use to build scalable applications.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8">
-        {skills.map((group, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="p-6 rounded-xl border bg-card hover:shadow-lg transition-shadow"
-          >
-            <h3 className="font-semibold text-xl mb-6 text-center">{group.category}</h3>
-            <div className="grid grid-cols-3 gap-6">
-              {group.items.map((skill, i) => (
-                <div key={i} className="flex flex-col items-center gap-2 group">
-                   <div className="p-3 rounded-lg bg-secondary/50 group-hover:bg-secondary transition-colors">
-                    {skill.icon}
-                   </div>
-                   <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
-                     {skill.name}
-                   </span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        ))}
+      <div className="max-w-4xl mx-auto">
+        {/* Tabs */}
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
+            {skills.map((group) => (
+                <button
+                    key={group.category}
+                    onClick={() => setActiveTab(group.category)}
+                    className={cn(
+                        "px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 border",
+                        activeTab === group.category
+                            ? "bg-primary text-primary-foreground border-primary shadow-lg scale-105"
+                            : "bg-background text-muted-foreground border-border hover:border-primary/50 hover:text-foreground"
+                    )}
+                >
+                    {group.category}
+                </button>
+            ))}
+        </div>
+
+        {/* Content */}
+        <div className="min-h-[300px]">
+            <AnimatePresence mode="wait">
+                {skills.map((group) => (
+                    group.category === activeTab && (
+                        <motion.div
+                            key={group.category}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.3 }}
+                            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6"
+                        >
+                            {group.items.map((skill, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ delay: i * 0.05 }}
+                                    className="flex flex-col items-center gap-3 p-4 rounded-xl border bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300 group"
+                                >
+                                    <div className="p-3 rounded-lg bg-secondary/50 group-hover:scale-110 transition-transform duration-300">
+                                        {skill.icon}
+                                    </div>
+                                    <span className="font-medium text-sm text-center">{skill.name}</span>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    )
+                ))}
+            </AnimatePresence>
+        </div>
       </div>
     </Section>
   )
